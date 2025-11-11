@@ -1,6 +1,6 @@
 {
     "name": "@lottie-animation-community/lottie-specs",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "JS bindings to Lottie specs",
     "main": "src/validator.js",
     "bin": {
