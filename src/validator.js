@@ -313,7 +313,7 @@ class LottieValidator
         // Patch animated property validation to validate based on `a: 0` or `a: 1`
         for ( let [pname, pschema] of Object.entries(this.defs.properties) )
         {
-            if ( pname.endsWith("-property") )
+            if ( pname.endsWith("-property") || pname == "gradient-stops" )
                 this._patch_property_schema(pschema, schema_id + "#/$defs/properties/" + pname);
         }
         this.defs.properties["base-keyframe"].keyframe = true;
@@ -596,6 +596,8 @@ class LottieValidator
     {
         if ( id.endsWith("gradient-property") )
         {
+            if ( schema.properties.k.$ref )
+                return schema;
             return this._patch_property_schema(schema.properties.k, id + "/properties/k");
         }
 
